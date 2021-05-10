@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.smushytaco.day_dream.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BedInject",
+    "PlayerEntityCanSleep",
+    "ServerWorldAccessors",
+    "WorldAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
