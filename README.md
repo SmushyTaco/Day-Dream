@@ -1,2 +1,4 @@
 # Day Dream
-Mod information: https://www.curseforge.com/minecraft/mc-mods/day-dream/
+CurseForge: https://www.curseforge.com/minecraft/mc-mods/day-dream/
+
+Modrinth: https://modrinth.com/mod/day-dream/
