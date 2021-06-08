@@ -1,6 +1,7 @@
 package com.smushytaco.day_dream.mixin;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.server.world.SleepManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -10,9 +11,7 @@ public interface ServerWorldAccessors {
     @Accessor
     List<ServerPlayerEntity> getPlayers();
     @Accessor
-    boolean getAllPlayersSleeping();
-    @Accessor
-    void setAllPlayersSleeping(boolean value);
+    SleepManager getSleepManager();
     @Invoker("wakeSleepingPlayers")
     void wakeSleepingPlayers();
     @Invoker("resetWeather")

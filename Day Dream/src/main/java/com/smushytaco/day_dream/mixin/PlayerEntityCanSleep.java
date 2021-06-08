@@ -2,6 +2,7 @@ package com.smushytaco.day_dream.mixin;
 import com.smushytaco.day_dream.DayDream;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.server.world.SleepManager;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,8 +16,9 @@ public abstract class PlayerEntityCanSleep {
         ServerWorld serverWorld = (ServerWorld) world;
         boolean isNight = serverWorld.isNight();
         serverWorld.updateSleepingPlayers();
-        if (((ServerWorldAccessors) serverWorld).getAllPlayersSleeping() && ((ServerWorldAccessors) serverWorld).getPlayers().stream().noneMatch((player) -> !player.isSpectator() && !player.isSleepingLongEnough())) {
-            ((ServerWorldAccessors) serverWorld).setAllPlayersSleeping(false);
+        int sleepPercentage = serverWorld.getGameRules().getInt(GameRules.PLAYERS_SLEEPING_PERCENTAGE);
+        SleepManager sleepManager = ((ServerWorldAccessors) serverWorld).getSleepManager();
+        if (sleepManager.canSkipNight(sleepPercentage) && sleepManager.canResetTime(sleepPercentage, ((ServerWorldAccessors) serverWorld).getPlayers())) {
             if (serverWorld.getGameRules().getBoolean(GameRules.DO_DAYLIGHT_CYCLE)) {
                 long l = ((WorldAccessor) world).getProperties().getTimeOfDay() + 12000L;
                 serverWorld.setTimeOfDay(l - l % 12000L);
