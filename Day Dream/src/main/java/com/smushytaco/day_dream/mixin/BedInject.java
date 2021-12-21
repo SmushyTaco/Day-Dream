@@ -19,7 +19,7 @@ public abstract class BedInject {
         if (!DayDream.INSTANCE.getConfig().getCanSleepDuringTheDay()) return;
         player.trySleep(pos).ifLeft((sleepFailureReason) -> {
             if (sleepFailureReason != null && sleepFailureReason != PlayerEntity.SleepFailureReason.NOT_POSSIBLE_NOW) {
-                player.sendMessage(sleepFailureReason.toText(), true);
+                player.sendMessage(sleepFailureReason.getMessage(), true);
             }
             if (sleepFailureReason == PlayerEntity.SleepFailureReason.NOT_POSSIBLE_NOW) player.sleep(pos);
         });

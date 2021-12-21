@@ -33,7 +33,7 @@ dependencies {
     modApi("me.shedaniel.cloth:cloth-config-fabric:$clothConfigVersion") { exclude("net.fabricmc.fabric-api") }
 }
 tasks {
-    val javaVersion = JavaVersion.VERSION_16
+    val javaVersion = JavaVersion.VERSION_17
     withType<JavaCompile> {
         options.encoding = "UTF-8"
         sourceCompatibility = javaVersion.toString()

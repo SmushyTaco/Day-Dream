@@ -30,13 +30,13 @@
     "day_dream.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.6",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "fabric-language-kotlin": ">=1.6.4+kotlin.1.5.30",
-    "minecraft": "1.17.x",
-    "cloth-config2": ">=5.0.38"
+    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
+    "minecraft": "1.18.x",
+    "cloth-config2": ">=6.1.48"
   },
   "suggests": {
-    "modmenu": ">=2.0.10"
+    "modmenu": ">=3.0.1"
   }
 }
