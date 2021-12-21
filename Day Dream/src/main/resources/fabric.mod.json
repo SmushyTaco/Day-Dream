@@ -34,7 +34,8 @@
     "fabric": "*",
     "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
     "minecraft": "1.18.x",
-    "cloth-config2": ">=6.1.48"
+    "cloth-config2": ">=6.1.48",
+    "java": ">=17"
   },
   "suggests": {
     "modmenu": ">=3.0.1"
