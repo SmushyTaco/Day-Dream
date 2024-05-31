@@ -12,8 +12,7 @@ import net.minecraft.util.ActionResult
 import net.minecraft.world.GameRules
 object DayDream : ModInitializer {
     const val MOD_ID = "day_dream"
-    lateinit var config: ModConfiguration
-        private set
+    private lateinit var config: ModConfiguration
     override fun onInitialize() {
         AutoConfig.register(ModConfiguration::class.java) { definition: Config, configClass: Class<ModConfiguration> ->
             GsonConfigSerializer(definition, configClass)
