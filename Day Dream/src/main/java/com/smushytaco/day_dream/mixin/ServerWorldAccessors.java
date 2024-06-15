@@ -12,8 +12,8 @@ public interface ServerWorldAccessors {
     List<ServerPlayerEntity> getPlayers();
     @Accessor
     SleepManager getSleepManager();
-    @Invoker("wakeSleepingPlayers")
-    void wakeSleepingPlayers();
-    @Invoker("resetWeather")
-    void resetWeather();
+    @Invoker
+    void invokeWakeSleepingPlayers();
+    @Invoker
+    void invokeResetWeather();
 }

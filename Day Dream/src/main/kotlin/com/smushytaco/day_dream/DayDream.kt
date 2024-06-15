@@ -29,8 +29,8 @@ object DayDream : ModInitializer {
                     val l = (serverWorld as WorldAccessor).properties.timeOfDay + 12000L
                     serverWorld.timeOfDay = l - l % 12000L
                 }
-                (serverWorld as ServerWorldAccessors).wakeSleepingPlayers()
-                if (serverWorld.gameRules.getBoolean(GameRules.DO_WEATHER_CYCLE)) (serverWorld as ServerWorldAccessors).resetWeather()
+                (serverWorld as ServerWorldAccessors).invokeWakeSleepingPlayers()
+                if (serverWorld.gameRules.getBoolean(GameRules.DO_WEATHER_CYCLE)) (serverWorld as ServerWorldAccessors).invokeResetWeather()
             }
             return@AllowSleepTime if (vanillaResult == serverWorld.isNight) ActionResult.SUCCESS else ActionResult.PASS
         })
