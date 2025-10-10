@@ -115,20 +115,20 @@ tasks {
         disableVersionDetection()
         apiToken = env.fetch("CURSEFORGE_TOKEN", "")
         val file = upload(480724, remapJar)
-        file.displayName = "[${project.extra["minecraft_version"] as String}] Day Dream"
+        file.displayName = "[${minecraftVersion.get()}] Day Dream"
         file.addEnvironment("Client", "Server")
         file.changelog = ""
         file.releaseType = "release"
         file.addModLoader("Fabric")
-        file.addGameVersion(project.extra["minecraft_version"] as String)
+        file.addGameVersion(minecraftVersion.get())
     }
 }
 modrinth {
     token.set(env.fetch("MODRINTH_TOKEN", ""))
     projectId.set("day-dream")
     uploadFile.set(tasks.remapJar)
-    gameVersions.addAll(project.extra["minecraft_version"] as String)
-    versionName.set("[${project.extra["minecraft_version"] as String}] Day Dream")
+    gameVersions.addAll(minecraftVersion.get())
+    versionName.set("[${minecraftVersion.get()}] Day Dream")
     dependencies {
         required.project("fabric-api", "fabric-language-kotlin", "owo-lib")
         optional.project("modmenu")
