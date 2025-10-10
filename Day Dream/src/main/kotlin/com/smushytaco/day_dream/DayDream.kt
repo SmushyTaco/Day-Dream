@@ -12,7 +12,7 @@ object DayDream : ModInitializer {
     override fun onInitialize() {
         EntitySleepEvents.ALLOW_SLEEP_TIME.register(EntitySleepEvents.AllowSleepTime { player, _, vanillaResult ->
             if (!config.canSleepDuringTheDay) return@AllowSleepTime ActionResult.PASS
-            val serverWorld = player.world as ServerWorld
+            val serverWorld = player.entityWorld as ServerWorld
             serverWorld.updateSleepingPlayers()
             val sleepPercentage = serverWorld.gameRules.getInt(GameRules.PLAYERS_SLEEPING_PERCENTAGE)
             val sleepManager = (serverWorld as ServerWorldAccessors).sleepManager
