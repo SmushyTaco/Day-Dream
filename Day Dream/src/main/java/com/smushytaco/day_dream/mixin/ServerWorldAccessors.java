@@ -1,19 +1,19 @@
 package com.smushytaco.day_dream.mixin;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.server.world.SleepManager;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.players.SleepStatus;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 import java.util.List;
-@Mixin(ServerWorld.class)
+@Mixin(ServerLevel.class)
 public interface ServerWorldAccessors {
     @Accessor
-    List<ServerPlayerEntity> getPlayers();
+    List<ServerPlayer> getPlayers();
     @Accessor
-    SleepManager getSleepManager();
+    SleepStatus getSleepStatus();
     @Invoker
-    void invokeWakeSleepingPlayers();
+    void invokeWakeUpAllPlayers();
     @Invoker
-    void invokeResetWeather();
+    void invokeResetWeatherCycle();
 }
