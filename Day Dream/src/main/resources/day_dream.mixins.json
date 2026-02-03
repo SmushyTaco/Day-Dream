@@ -3,8 +3,8 @@
   "package": "com.smushytaco.day_dream.mixin",
   "compatibilityLevel": "JAVA_${java}",
   "mixins": [
-    "ServerWorldAccessors",
-    "WorldAccessor"
+    "ServerLevelMixin",
+    "BedRuleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
