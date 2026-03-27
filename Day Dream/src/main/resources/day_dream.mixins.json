@@ -3,7 +3,7 @@
   "package": "com.smushytaco.day_dream.mixin",
   "compatibilityLevel": "JAVA_${java}",
   "mixins": [
-    "ServerLevelMixin",
+    "ServerClockManagerMixin",
     "BedRuleMixin"
   ],
   "injectors": {
