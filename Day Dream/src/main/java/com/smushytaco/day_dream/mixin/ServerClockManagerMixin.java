@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ServerClockManager.class)
 public abstract class ServerClockManagerMixin {
     @WrapOperation(method = "lambda$moveToTimeMarker$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/clock/ClockTimeMarker;resolveTimeToMoveTo(J)J"))
-    private static long hookTick(ClockTimeMarker instance, long totalTicks, Operation<Long> original, @Local(name = "timeMarkerId") ResourceKey<ClockTimeMarker> timeMarkerId) {
+    private static long hookTick(ClockTimeMarker instance, long totalTicks, Operation<Long> original, @Local(name = "timeMarkerId", argsOnly = true) ResourceKey<ClockTimeMarker> timeMarkerId) {
         long result = original.call(instance, totalTicks);
         if (!DayDream.INSTANCE.getConfig().getCanSleepDuringTheDay() || !ClockTimeMarkers.WAKE_UP_FROM_SLEEP.equals(timeMarkerId)) return result;
         long remainder = Math.floorMod(totalTicks, 12000L);
